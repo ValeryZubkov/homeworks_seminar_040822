@@ -1,42 +1,48 @@
 ﻿// Найти третью цифру числа или сообщить, что её нет
 
 Console.WriteLine("Введите любое целое число: ");
-string numberText = Console.ReadLine();
-int count = numberText.Length;
-int number = int.Parse(numberText);
+int number = int.Parse(Console.ReadLine());
+//int digitNumber = 1;
+//while(number / 10 >= 1 || number / 10 <= -1)
+//{
+  //  number = number / 10;
+  //  digitNumber = digitNumber + 1;
+//}
+//Console.WriteLine("Введенное Вами число состоит из " + digitNumber + " цифр(ы).");
+//int count = numberText.Length;
+int Digitsnumber(int numb)   // функция подсчет еоличества цифр в числе
+{
+int digitNumber = 1;
+while(numb / 10 >= 1 || numb / 10 <= -1)
+{
+    numb = numb / 10;
+    digitNumber = digitNumber + 1;
+}
+return digitNumber;
+}
+
 if(number > -100 && number < 100)
 {
-    Console.WriteLine("В Ващем числе отсутствует 3-я цифра. Повторите попытку.");
+    Console.WriteLine("В Вашем числе отсутствует 3-я цифра. Повторите попытку.");
 } 
 else
-{
-    if (number >= 100)
-    {                           //обрабатываются любые положительные  числа  длиной от 3х цифр;
+{                            
       int parametr = 1;        
       int index = 0;
-      while(index < (count - 3)) //цифра 3 в условии работает при числе от 3-х цифр, сюда как разз и попадают такие числа; поменяв ее, мы можем найти любую цифру числа.
+      while(index < (Digitsnumber(number) - 3)) //цифра 3 в условии работает при числе от 3-х цифр, сюда как раз и попадают такие числа; поменяв ее, мы можем найти любую цифру числа.
       {
       parametr = parametr * 10;  // найдена закономерность изменения переменной parametr при увеличении разряда чисел.
       index++;
       }
-
+    if(number > 99)                  //проверка на положительное-отрицательное
+    {
     int digitThird = number / parametr % 10;
-    Console.WriteLine("Третьей цифрой Вашего числа является " + digitThird); 
-
+    Console.WriteLine("Третьей цифрой Вашего числа является: " + digitThird);     
     }
-    else                              
-    {                              // обрабатываются отрицательные числа
-     int parametr = 1;             
-     int index = 0;
-     while(index < (count - 4))  // цифра 4 сменила цифру 3 из-за наличия знака "-" в числе, длина строки которого посчиталась вместе с минусом.
-     {
-     parametr = parametr * 10;
-     index++;
-     }
-
-     int digitThird = -number / parametr % 10; 
-     Console.WriteLine("Третьей цифрой Вашего числа является " + digitThird); 
-
-    }
+    else
+    {
+    int digitThird = -number / parametr % 10;
+    Console.WriteLine("Третьей цифрой Вашего числа является: " + digitThird);  
+    } 
 }
 
