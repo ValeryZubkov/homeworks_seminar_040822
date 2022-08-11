@@ -2,15 +2,7 @@
 
 Console.WriteLine("Введите любое целое число: ");
 int number = int.Parse(Console.ReadLine());
-//int digitNumber = 1;
-//while(number / 10 >= 1 || number / 10 <= -1)
-//{
-  //  number = number / 10;
-  //  digitNumber = digitNumber + 1;
-//}
-//Console.WriteLine("Введенное Вами число состоит из " + digitNumber + " цифр(ы).");
-//int count = numberText.Length;
-int Digitsnumber(int numb)   // функция подсчет еоличества цифр в числе
+int Digitsnumber(int numb)   // функция подсчета количества цифр в числе
 {
 int digitNumber = 1;
 while(numb / 10 >= 1 || numb / 10 <= -1)
